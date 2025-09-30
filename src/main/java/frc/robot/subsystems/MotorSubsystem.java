@@ -5,10 +5,10 @@ import com.ctre.phoenix6.configs.TalonFXConfigurator;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-public class KrakenX60Run {
-    private TalonFX krakenX60Motor;
+import frc.robot.Constants;
 
-    public static final int motorID = 2;
+public class MotorSubsystem {
+    private TalonFX krakenX60Motor;
 
     public static final CurrentLimitsConfigs currentLimits = new CurrentLimitsConfigs()
             .withSupplyCurrentLimitEnable(true)
@@ -16,12 +16,12 @@ public class KrakenX60Run {
             .withSupplyCurrentLowerLimit(10)
             .withSupplyCurrentLowerTime(1.0);
 
-    public KrakenX60Run() {
+    public MotorSubsystem() {
         initMotor();
     }
 
     private void initMotor() {
-        krakenX60Motor = new TalonFX(motorID);
+        krakenX60Motor = new TalonFX(Constants.MotorConstants.MOTOR_ID);
 
         krakenX60Motor.setNeutralMode(NeutralModeValue.Brake);
         TalonFXConfigurator configurator = krakenX60Motor.getConfigurator();
