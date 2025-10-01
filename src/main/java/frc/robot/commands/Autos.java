@@ -8,9 +8,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 
 public final class Autos {
-  public static Command exampleAuto(String sillyMessage) {
+  public static Command printAuto(String sillyMessage) {
     return Commands.runOnce(() -> {
       System.out.println(sillyMessage);
+      //throw new RuntimeException();
     });
   }
 

@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.robot.commands.Autos;
 import frc.robot.subsystems.MotorSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
@@ -16,8 +17,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return Commands.runOnce(() -> {
-      System.out.println("Autos have begun!");
-    });
+    return Autos.printAuto("Autonomous mode enabled!!! YIPPEE");
   }
 }

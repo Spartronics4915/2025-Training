@@ -21,15 +21,16 @@ public class MotorSubsystem {
     }
 
     private void initMotor() {
-        krakenX60Motor = new TalonFX(Constants.MotorConstants.MOTOR_ID);
+        krakenX60Motor = new TalonFX();
 
-        krakenX60Motor.setNeutralMode(NeutralModeValue.Brake);
+        krakenX60Motor.setNeutralMode(); // Put the motor in brake mode
         TalonFXConfigurator configurator = krakenX60Motor.getConfigurator();
         configurator.apply(currentLimits);
-        
+    
     }
 
+
     public void runKrakenX60() {
-        krakenX60Motor.setVoltage(1);
+        krakenX60Motor.setVoltage();
     }
 }

@@ -8,6 +8,7 @@ public final class Constants {
 
     public final class MotorConstants {
         public static final int MOTOR_ID = 2;
+        public static double VOLTAGE = 0.6;
     }
 
 }
