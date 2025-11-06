@@ -4,19 +4,29 @@
 
 package frc.robot;
 
-import frc.robot.commands.Autos;
-import frc.robot.subsystems.MotorSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class RobotContainer {
-  MotorSubsystem KrakenX60Run = new MotorSubsystem();
+    private ElevatorSubsystem elevator = new ElevatorSubsystem();
 
-  public RobotContainer() {
-    KrakenX60Run.runKrakenX60();
-  }
+    private final CommandXboxController driverController = new CommandXboxController(0);
 
-  public Command getAutonomousCommand() {
-    return Autos.printAuto("Autonomous mode enabled!!! YIPPEE");
-  }
+    public RobotContainer() {
+        configureBindings();
+    }
+
+    public Command getAutonomousCommand() {
+        return Commands.runOnce(() -> {
+            System.out.println("Autos");
+        });
+    }
+
+    public void configureBindings() {
+        driverController.a().toggleOnTrue(elevator.incrementSetpointCommand(0.05));
+        
+        driverController.b().toggleOnTrue(elevator.incrementSetpointCommand(-0.05));
+    }
 }

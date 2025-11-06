@@ -6,7 +6,7 @@ package frc.robot;
 
 public final class Constants {
 
-    public final class MotorConstants {
+    public final class ElevatorConstants {
         public static final int MOTOR_ID = 2;
         public static double VOLTAGE = 0.6;
     }
