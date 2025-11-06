@@ -7,8 +7,16 @@ package frc.robot;
 public final class Constants {
 
     public final class ElevatorConstants {
-        public static final int MOTOR_ID = 2;
-        public static double VOLTAGE = 0.6;
+        public static final int MOTOR_ID = 9;
+        public static final int FOLLOWER_ID = 10;
+
+        /**
+         * Rotations to meters
+         */
+        public static final double CONVERSION_FACTOR = (1/9.0) * 0.14044 * 2;
+
+        public static final double MIN_HEIGHT = 0.1;
+        public static final double MAX_HEIGHT = 1;
     }
 
 }
